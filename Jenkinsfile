@@ -10,7 +10,7 @@ pipeline {
                 }
             }
         } 
-    }
+    
 
     stage ('Push Docker Image'){
         steps {
@@ -18,7 +18,7 @@ pipeline {
                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
                     dockerapp.Push('latest')
                     dockerapp.Push("${env.BUILD_ID}")
-            }
+                }
             }
         }
     }
