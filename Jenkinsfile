@@ -9,7 +9,8 @@ pipeline {
                     dockerapp = docker.build("marcodamo/kube-news:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
                 }
             }
-        }
+        } 
+    }
 
     stage ('Push Docker Image'){
         steps {
@@ -21,7 +22,3 @@ pipeline {
             }
         }
     }
-
-    }
-
-}
